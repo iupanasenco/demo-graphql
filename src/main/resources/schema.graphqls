@@ -1,0 +1,30 @@
+type Movie {
+    id: ID!
+    title: String!
+    year: Int
+    genre: String
+}
+
+type Genre {
+    id: ID!
+    name: String!
+}
+
+type User {
+    id: ID!
+    username: String!
+    firstname: String
+    lastname: String
+    movies: [Movie]
+    genres: [Genre]
+}
+
+type Query {
+    getUsersMovies: [Movie]!
+    getUsersGenres: [Genre]!
+
+}
+
+type Mutations {
+    addMovieToUser(userId: ID!, movieId: ID!) :User
+}
